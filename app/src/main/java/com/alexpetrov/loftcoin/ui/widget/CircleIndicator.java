@@ -52,7 +52,7 @@ public class CircleIndicator extends RecyclerView.ItemDecoration {
             }
 
 
-        }
+        }//
 
     }
 
