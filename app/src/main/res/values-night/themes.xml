@@ -1,0 +1,7 @@
+<resources>
+    <style name="Theme.LoftCoin" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/dark_six</item>
+        <item name="colorSecondary">@color/grey_blue</item>
+        <item name="android:colorBackground">?attr/colorPrimary</item>
+    </style>
+</resources>
