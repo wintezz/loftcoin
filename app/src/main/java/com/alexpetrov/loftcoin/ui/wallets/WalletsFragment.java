@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
 import com.alexpetrov.loftcoin.R;
+import com.alexpetrov.loftcoin.databinding.FragmentWalletsBinding;
 
 public class WalletsFragment extends Fragment {
 
@@ -30,7 +31,7 @@ public class WalletsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        final FragmentWalletBinding binding = FragmentWalletBinding.bind(view);
+        final FragmentWalletsBinding binding = FragmentWalletsBinding.bind(view);
         walletsSnapHelper = new PagerSnapHelper();
         walletsSnapHelper.attachToRecyclerView(binding.recycler);
 
