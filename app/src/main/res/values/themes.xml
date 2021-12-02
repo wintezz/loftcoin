@@ -1,4 +1,10 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    
+    <attr name="buttonWelcome" format="reference"  />
+    <attr name="walletCardBackground" format="color|reference" />
+    <attr name="walletCardWidth" format="dimension|reference" />
+    <attr name="walletCardHeight" format="dimension|reference" />
+
 
     <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar">
         <item name="colorPrimary">@color/dark_six</item>
@@ -68,11 +74,6 @@
         <item name="android:textSize">14sp</item>
     </style>
 
-
-    <attr name="buttonWelcome" format="color|reference" />
-    <attr name="walletCardBackground" format="color|reference" />
-    <attr name="walletCardWidth" format="color|reference" />
-    <attr name="walletCardHeight" format="color|reference" />
 
 
 </resources>

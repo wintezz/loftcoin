@@ -13,7 +13,7 @@ android {
         versionName "1.0"
 
         buildConfigField "String", "API_KEY", "\"${pApiKey}\""
-        buildConfigField "String", "API_ENDPOINT", "https://pro-api.coinmarketcap.com/v1/"
+        buildConfigField "String", "API_ENDPOINT", "\"https://pro-api.coinmarketcap.com/v1/\""
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -47,7 +47,6 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui:2.3.5'
 
     implementation 'com.jakewharton.timber:timber:4.7.1'
-
 
 
     testImplementation 'junit:junit:'
