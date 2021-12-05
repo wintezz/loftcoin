@@ -25,7 +25,7 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_spalsh);
+        setContentView(R.layout.activity_splash);
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         if (prefs.getBoolean(WelcomeActivity.KEY_SHOW_WELCOME, true)) {
             goNext = () -> startActivity(new Intent(this, WelcomeActivity.class));

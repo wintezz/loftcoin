@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
@@ -23,6 +24,8 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private SnapHelper helper;
 
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +34,7 @@ public class WelcomeActivity extends AppCompatActivity {
         binding.recycler.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
         binding.recycler.addItemDecoration(new CircleIndicator(this));
         binding.recycler.setAdapter(new WelcomeAdapter());
+        helper = new PagerSnapHelper();
         helper.attachToRecyclerView(binding.recycler);
         binding.btnStart.setOnClickListener((v) ->{
             PreferenceManager.getDefaultSharedPreferences(this).edit()

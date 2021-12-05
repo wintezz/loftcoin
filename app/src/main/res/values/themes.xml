@@ -16,8 +16,6 @@
 
         <item name="android:colorBackground">?attr/colorPrimary</item>
 
-
-
         <item name="textAppearanceHeadline1">@style/TextAppearance.AppTheme.H1</item>
         <item name="textAppearanceHeadline2">@style/TextAppearance.AppTheme.H2</item>
         <item name="textAppearanceHeadline3">@style/TextAppearance.AppTheme.H3</item>
