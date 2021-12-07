@@ -7,7 +7,7 @@
     <size android:height="64dp" />
 
     <gradient
-        android:angle="100"
+        android:angle="180"
         android:endColor="@color/watermelon"
         android:startColor="@color/pumpkin_orange" />
 
