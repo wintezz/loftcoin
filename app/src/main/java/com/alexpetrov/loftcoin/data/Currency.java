@@ -8,13 +8,14 @@ import com.google.auto.value.AutoValue;
 public abstract class Currency {
 
     @NonNull
-    static Currency create(String symbol, String code, String title) {
-        return null;
+    static Currency create(String symbol, String code, String name) {
+        return new AutoValue_Currency(symbol, code, name);
     }
 
     public abstract String symbol();
 
     public abstract String code();
 
-    public abstract String title();
+    public abstract String name();
+
 }

@@ -1,13 +1,10 @@
-package com.alexpetrov.loftcoin.ui.rates;
+package com.alexpetrov.loftcoin.ui.activity.rates;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.Outline;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewOutlineProvider;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
@@ -20,15 +17,17 @@ import com.alexpetrov.loftcoin.data.Coin;
 import com.alexpetrov.loftcoin.databinding.LiRateBinding;
 import com.alexpetrov.loftcoin.util.Formatter;
 import com.alexpetrov.loftcoin.util.OutlineCircle;
+import com.alexpetrov.loftcoin.util.PercentFormatter;
 import com.squareup.picasso.Picasso;
 
-import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Objects;
 
-public class RatesAdapter extends ListAdapter<Coin, RatesAdapter.ViewHolder> {
+class RatesAdapter extends ListAdapter<Coin, RatesAdapter.ViewHolder> {
 
-    private  final Formatter<Double> priceFormatter;
+    private final Formatter<Double> priceFormatter;
+
+    private final PercentFormatter percentFormatter;
 
     private LayoutInflater inflater;
 
@@ -36,8 +35,7 @@ public class RatesAdapter extends ListAdapter<Coin, RatesAdapter.ViewHolder> {
 
     private int colorPositive = Color.GREEN;
 
-
-    RatesAdapter(Formatter<Double> priceFormatter) {
+    RatesAdapter(Formatter<Double> priceFormatter, PercentFormatter percentFormatter) {
         super(new DiffUtil.ItemCallback<Coin>() {
             @Override
             public boolean areItemsTheSame(@NonNull Coin oldItem, @NonNull Coin newItem) {
@@ -49,6 +47,7 @@ public class RatesAdapter extends ListAdapter<Coin, RatesAdapter.ViewHolder> {
                 return Objects.equals(oldItem, newItem);
             }
         });
+        this.percentFormatter = percentFormatter;
         this.priceFormatter = priceFormatter;
         setHasStableIds(true);
     }
@@ -60,16 +59,17 @@ public class RatesAdapter extends ListAdapter<Coin, RatesAdapter.ViewHolder> {
 
     @NonNull
     @Override
-    public RatesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ViewHolder(LiRateBinding.inflate(inflater, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RatesAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Coin coin = getItem(position);
-        holder.binding.symbol.setText(getItem(position).symbol());
+        holder.binding.symbol.setText(coin.symbol());
         holder.binding.price.setText(priceFormatter.format(coin.price()));
-        holder.binding.change.setText(String.format(Locale.US,"%.2f%%", coin.change24h()));
+        holder.binding.change.setText(percentFormatter.format(coin.change24h()));
+        holder.binding.change.setText(String.format(Locale.US, "%.2f%%", coin.change24h()));
         if (coin.change24h() > 0) {
             holder.binding.change.setTextColor(colorPositive);
         } else {
@@ -78,9 +78,7 @@ public class RatesAdapter extends ListAdapter<Coin, RatesAdapter.ViewHolder> {
         Picasso.get()
                 .load(BuildConfig.IMG_ENDPOINT + coin.id() + ".png")
                 .into(holder.binding.logo);
-
     }
-
     @Override
     public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
@@ -91,7 +89,6 @@ public class RatesAdapter extends ListAdapter<Coin, RatesAdapter.ViewHolder> {
         colorNegative = v.data;
         context.getTheme().resolveAttribute(R.attr.textPositive, v, true);
         colorPositive = v.data;
-
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
@@ -103,6 +100,6 @@ public class RatesAdapter extends ListAdapter<Coin, RatesAdapter.ViewHolder> {
             this.binding = binding;
             OutlineCircle.apply(binding.logo);
         }
-
     }
+
 }

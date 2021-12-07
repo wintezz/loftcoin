@@ -1,4 +1,4 @@
-package com.alexpetrov.loftcoin.ui.rates;
+package com.alexpetrov.loftcoin.ui.activity.rates;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
@@ -18,7 +18,7 @@ import java.util.concurrent.Future;
 
 public class RatesViewModel extends ViewModel {
 
-    private MutableLiveData<List<Coin>> coins = new MutableLiveData<>();
+    private final MutableLiveData<List<Coin>> coins = new MutableLiveData<>();
 
     private final MutableLiveData<Boolean> isRefreshing = new MutableLiveData<>();
 
@@ -32,7 +32,6 @@ public class RatesViewModel extends ViewModel {
         repo = new CmcCoinsRepo();
         refresh();
     }
-
 
     @NonNull
     LiveData<List<Coin>> coins() {
@@ -57,11 +56,9 @@ public class RatesViewModel extends ViewModel {
     }
 
     @Override
-    protected  void onCleared() {
+    protected void onCleared() {
         if (future != null) {
             future.cancel(true);
         }
-
     }
-
 }

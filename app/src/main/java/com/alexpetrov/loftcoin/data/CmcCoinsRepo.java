@@ -69,12 +69,11 @@ public class CmcCoinsRepo implements CoinsRepo {
         final Moshi moshi = new Moshi.Builder().build();
         builder.addConverterFactory(MoshiConverterFactory.create(
                 moshi.newBuilder()
-                .add(Coin.class, moshi.adapter(Coin.class))
-                .add(Listings.class, moshi.adapter(Listings.class))
-                .build()
+                        .add(Coin.class, moshi.adapter(AutoValue_Coin.class))
+                        .add(Listings.class, moshi.adapter(AutoValue_Listings.class))
+                        .build()
         ));
-
         return builder.build();
-
     }
+
 }

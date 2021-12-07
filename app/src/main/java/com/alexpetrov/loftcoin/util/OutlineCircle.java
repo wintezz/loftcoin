@@ -13,11 +13,10 @@ public class OutlineCircle extends ViewOutlineProvider {
             @Override
             public void getOutline(View view, Outline outline) {
                 int minSize = Math.min(view.getWidth(), view.getHeight());
-                outline.setRoundRect(0,0, view.getWidth(), view.getHeight(), minSize / 2f);
+                outline.setRoundRect(0, 0, view.getWidth(), view.getHeight(), minSize / 2f);
             }
         });
         view.setClipToOutline(true);
-
     }
 
     @Override
@@ -27,4 +26,3 @@ public class OutlineCircle extends ViewOutlineProvider {
     }
 
 }
-

@@ -15,25 +15,20 @@ import com.alexpetrov.loftcoin.ui.main.MainActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private SharedPreferences prefs;
-
     private final Handler handler = new Handler();
 
     private Runnable goNext;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        if (prefs.getBoolean(WelcomeActivity.KEY_SHOW_WELCOME, true)) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        if(prefs.getBoolean(WelcomeActivity.KEY_SHOW_WELCOME, true)){
             goNext = () -> startActivity(new Intent(this, WelcomeActivity.class));
         } else {
             goNext = () -> startActivity(new Intent(this, MainActivity.class));
-
         }
-
         handler.postDelayed(goNext, 1500);
     }
 

@@ -5,6 +5,7 @@ import android.os.Build;
 import androidx.annotation.NonNull;
 
 public class PriceFormatter implements Formatter<Double> {
+
     @NonNull
     @Override
     public String format(@NonNull Double value) {
@@ -14,4 +15,5 @@ public class PriceFormatter implements Formatter<Double> {
             return java.text.NumberFormat.getCurrencyInstance().format(value);
         }
     }
+
 }
