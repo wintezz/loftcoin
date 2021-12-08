@@ -32,18 +32,23 @@ public class WelcomeAdapter extends RecyclerView.Adapter<WelcomeAdapter.ViewHold
 
     private LayoutInflater inflater;
 
+    @Override
+    public int getItemCount() {
+        return IMAGES.length;
+    }
+
     @NonNull
     @Override
     public WelcomeAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         return new ViewHolder(WelcomePageBinding.inflate(inflater, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull WelcomeAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.binding.image.setImageResource(IMAGES[position]);
         holder.binding.title.setText(TITLES[position]);
         holder.binding.subtitle.setText(SUBTITLES[position]);
-
     }
 
     @Override
@@ -52,17 +57,11 @@ public class WelcomeAdapter extends RecyclerView.Adapter<WelcomeAdapter.ViewHold
         inflater = LayoutInflater.from(recyclerView.getContext());
     }
 
-
-    @Override
-    public int getItemCount() {
-        return IMAGES.length;
-    }
-
     static class ViewHolder extends RecyclerView.ViewHolder {
 
         final WelcomePageBinding binding;
 
-        public ViewHolder(WelcomePageBinding binding) {
+        ViewHolder(WelcomePageBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }

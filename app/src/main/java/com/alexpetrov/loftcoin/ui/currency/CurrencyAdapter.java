@@ -1,43 +1,70 @@
 package com.alexpetrov.loftcoin.ui.currency;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alexpetrov.loftcoin.data.Currency;
+import com.alexpetrov.loftcoin.databinding.LiCurrencyBinding;
 
 import java.util.List;
+import java.util.Objects;
 
-public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.ViewHolder> {
+public class CurrencyAdapter extends ListAdapter<Currency, CurrencyAdapter.ViewHolder> {
 
+    private LayoutInflater inflater;
 
-    public void submitList(List<Currency> currencies) {
+    CurrencyAdapter() {
+        super(new DiffUtil.ItemCallback<Currency>() {
+            @Override
+            public boolean areItemsTheSame(@NonNull Currency oldItem, @NonNull Currency newItem) {
+                return Objects.equals(oldItem, newItem);
+            }
 
+            @Override
+            public boolean areContentsTheSame(@NonNull Currency oldItem, @NonNull Currency newItem) {
+                return Objects.equals(oldItem, newItem);
+            }
+        });
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
-
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-        }
+    @Override
+    public Currency getItem(int position) {
+        return super.getItem(position);
     }
 
     @NonNull
     @Override
-    public CurrencyAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new ViewHolder(LiCurrencyBinding.inflate(inflater, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CurrencyAdapter.ViewHolder holder, int position) {
-
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        final Currency currency = getItem(position);
+        holder.binding.name.setText(currency.name());
+        holder.binding.symbol.setText(currency.symbol());
     }
 
     @Override
-    public int getItemCount() {
-        return 0;
+    public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+        inflater = LayoutInflater.from(recyclerView.getContext());
     }
+
+    static class ViewHolder extends RecyclerView.ViewHolder {
+        private final LiCurrencyBinding binding;
+
+        ViewHolder(@NonNull LiCurrencyBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
+        }
+    }
+
 }

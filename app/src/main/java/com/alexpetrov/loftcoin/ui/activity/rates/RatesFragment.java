@@ -1,4 +1,4 @@
-package com.alexpetrov.loftcoin.ui.rates;
+package com.alexpetrov.loftcoin.ui.activity.rates;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,8 +16,13 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.alexpetrov.loftcoin.R;
+import com.alexpetrov.loftcoin.data.CurrencyRepo;
+import com.alexpetrov.loftcoin.data.CurrencyRepoImpl;
 import com.alexpetrov.loftcoin.databinding.FragmentRatesBinding;
+import com.alexpetrov.loftcoin.util.PercentFormatter;
 import com.alexpetrov.loftcoin.util.PriceFormatter;
+
+import timber.log.Timber;
 
 
 public class RatesFragment extends Fragment {
@@ -28,11 +33,16 @@ public class RatesFragment extends Fragment {
 
     private RatesViewModel viewModel;
 
+    private CurrencyRepo currencyRepo;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewModel = new ViewModelProvider(this).get(RatesViewModel.class);
-        adapter = new RatesAdapter(new PriceFormatter());
+        adapter = new RatesAdapter(new PriceFormatter(), new PercentFormatter());
+        currencyRepo = new CurrencyRepoImpl(requireContext());
+
+
     }
 
     @Nullable
@@ -51,6 +61,7 @@ public class RatesFragment extends Fragment {
         binding.recycler.setHasFixedSize(true);
         viewModel.coins().observe(getViewLifecycleOwner(), adapter::submitList);
         viewModel.isRefreshing().observe(getViewLifecycleOwner(), binding.refresher::setRefreshing);
+        currencyRepo.currency().observe(getViewLifecycleOwner(), (currency) -> Timber.d("%s", currency));
     }
 
     @Override
@@ -65,7 +76,6 @@ public class RatesFragment extends Fragment {
             NavHostFragment
                     .findNavController(this)
                     .navigate(R.id.currency_dialog);
-
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -76,4 +86,5 @@ public class RatesFragment extends Fragment {
         binding.recycler.swapAdapter(null, false);
         super.onDestroyView();
     }
+
 }
