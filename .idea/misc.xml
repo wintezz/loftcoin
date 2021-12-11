@@ -21,7 +21,7 @@
         <entry key="app/src/main/res/layout/activity_spalsh.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_welcome.xml" value="0.22708333333333333" />
-        <entry key="app/src/main/res/layout/converter_fragment.xml" value="0.22708333333333333" />
+        <entry key="app/src/main/res/layout/converter_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/dialog_currency.xml" value="0.22708333333333333" />
         <entry key="app/src/main/res/layout/fragment_converter.xml" value="0.22708333333333333" />
         <entry key="app/src/main/res/layout/fragment_rates.xml" value="0.22708333333333333" />
@@ -39,6 +39,11 @@
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.22037037037037038" />
       </map>
     </option>
+  </component>
+  <component name="EntryPointsManager">
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="androidx.room.Query" />
+    </list>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />

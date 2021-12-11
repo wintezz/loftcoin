@@ -1,11 +1,9 @@
 package com.alexpetrov.loftcoin.ui.currency;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alexpetrov.loftcoin.data.Currency;
 import com.alexpetrov.loftcoin.databinding.LiCurrencyBinding;
 
-import java.util.List;
 import java.util.Objects;
 
 public class CurrencyAdapter extends ListAdapter<Currency, CurrencyAdapter.ViewHolder> {
