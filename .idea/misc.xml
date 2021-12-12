@@ -14,7 +14,9 @@
         <entry key="app/src/main/res/drawable/ic_currency_24dp.xml" value="0.22037037037037038" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.22037037037037038" />
         <entry key="app/src/main/res/drawable/ic_rate.xml" value="0.20833333333333334" />
+        <entry key="app/src/main/res/drawable/ic_rate1.xml" value="0.22592592592592592" />
         <entry key="app/src/main/res/drawable/ic_sort_24dp.xml" value="0.22037037037037038" />
+        <entry key="app/src/main/res/drawable/ic_wallet.xml" value="0.22592592592592592" />
         <entry key="app/src/main/res/drawable/ic_wallet_24dp.xml" value="0.22037037037037038" />
         <entry key="app/src/main/res/drawable/recycler.xml" value="0.22037037037037038" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />
