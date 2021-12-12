@@ -13,7 +13,8 @@
         android:layout_marginTop="12dp"
         android:src="@mipmap/artboard_top_foreground"
         app:layout_constraintEnd_toStartOf="@+id/icon"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/icon"
@@ -24,7 +25,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/textView"
@@ -47,7 +49,8 @@
         android:layout_marginTop="80dp"
         android:src="@mipmap/artboard_bot_foreground"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/icon" />
+        app:layout_constraintTop_toBottomOf="@+id/icon"
+        tools:ignore="ContentDescription" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

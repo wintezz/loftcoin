@@ -1,5 +1,6 @@
 package com.alexpetrov.loftcoin.ui.splash;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,9 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
 import com.alexpetrov.loftcoin.R;
-import com.alexpetrov.loftcoin.ui.welcome.WelcomeActivity;
 import com.alexpetrov.loftcoin.ui.main.MainActivity;
+import com.alexpetrov.loftcoin.ui.welcome.WelcomeActivity;
 
+@SuppressLint("CustomSplashScreen")
 public class SplashActivity extends AppCompatActivity {
 
     private final Handler handler = new Handler();

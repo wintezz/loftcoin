@@ -12,9 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SnapHelper;
 
 import com.alexpetrov.loftcoin.R;
+
 import com.alexpetrov.loftcoin.databinding.ActivityWelcomeBinding;
 import com.alexpetrov.loftcoin.ui.main.MainActivity;
-import com.alexpetrov.loftcoin.ui.widget.CircleIndicator;
+import com.alexpetrov.loftcoin.widget.CircleIndicator;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -28,7 +29,7 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
-        final ActivityWelcomeBinding binding = ActivityWelcomeBinding.inflate(getLayoutInflater());
+        binding = ActivityWelcomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         binding.recycler.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
         binding.recycler.addItemDecoration(new CircleIndicator(this));
@@ -47,6 +48,7 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         helper.attachToRecyclerView(null);
+        //binding.recycler.setAdapter(null);
         super.onDestroy();
     }
 }

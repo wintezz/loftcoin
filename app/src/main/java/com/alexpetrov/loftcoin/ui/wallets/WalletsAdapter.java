@@ -1,7 +1,6 @@
 package com.alexpetrov.loftcoin.ui.wallets;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -15,7 +14,7 @@ class WalletsAdapter extends RecyclerView.Adapter<WalletsAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 10;
+        return 0;
     }
 
     @NonNull

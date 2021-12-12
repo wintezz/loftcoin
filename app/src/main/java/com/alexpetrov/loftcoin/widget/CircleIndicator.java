@@ -1,4 +1,4 @@
-package com.alexpetrov.loftcoin.ui.widget;
+package com.alexpetrov.loftcoin.widget;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -10,6 +10,8 @@ import android.util.TypedValue;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+
 
 public class CircleIndicator extends RecyclerView.ItemDecoration {
 
