@@ -1,14 +1,11 @@
 package com.alexpetrov.loftcoin.util;
 
-import android.content.Context;
 import android.os.SystemClock;
-import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 
 import androidx.annotation.NonNull;
-import androidx.core.view.GestureDetectorCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 

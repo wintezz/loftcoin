@@ -1,7 +1,6 @@
-package com.alexpetrov.loftcoin.ui.activity.rates;
+package com.alexpetrov.loftcoin.ui.wallets;
 
 import androidx.lifecycle.ViewModelProvider;
-
 
 import com.alexpetrov.loftcoin.BaseComponent;
 import com.alexpetrov.loftcoin.util.ViewModelModule;
@@ -10,18 +9,19 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 
-
 @Singleton
 @Component(modules = {
-        RatesModule.class,
+        WalletsModule.class,
         ViewModelModule.class
 }, dependencies = {
         BaseComponent.class
 })
-abstract class RatesComponent {
+abstract class WalletsComponent {
 
     abstract ViewModelProvider.Factory viewModelFactory();
 
-    abstract RatesAdapter ratesAdapter();
+    abstract WalletsAdapter walletsAdapter();
+
+    abstract TransactionsAdapter transactionsAdapter();
 
 }

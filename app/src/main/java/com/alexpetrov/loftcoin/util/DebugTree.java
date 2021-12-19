@@ -1,6 +1,5 @@
 package com.alexpetrov.loftcoin.util;
 
-import android.os.Debug;
 
 import org.jetbrains.annotations.NotNull;
 

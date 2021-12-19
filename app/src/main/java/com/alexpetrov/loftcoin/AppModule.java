@@ -16,7 +16,6 @@ import dagger.Module;
 import dagger.Provides;
 import okhttp3.Dispatcher;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import okhttp3.logging.HttpLoggingInterceptor;
 
 @Module
