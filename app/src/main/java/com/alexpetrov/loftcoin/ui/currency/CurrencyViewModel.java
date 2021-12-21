@@ -17,15 +17,18 @@ class CurrencyViewModel extends ViewModel {
 
     @Inject
     CurrencyViewModel(CurrencyRepo currencyRepo) {
+
         this.currencyRepo = currencyRepo;
     }
 
     @NonNull
     LiveData<List<Currency>> allCurrencies() {
+
         return currencyRepo.availableCurrencies();
     }
 
     void updateCurrency(@NonNull Currency currency) {
+
         currencyRepo.updateCurrency(currency);
     }
 

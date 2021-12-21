@@ -13,7 +13,7 @@
         android:background="@drawable/bg_wallet_card"
         android:padding="56dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/ic_add_24dp"
+        android:src="@drawable/ic_add_24"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
