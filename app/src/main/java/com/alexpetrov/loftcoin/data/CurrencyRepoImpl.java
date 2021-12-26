@@ -29,7 +29,7 @@ class CurrencyRepoImpl implements CurrencyRepo {
 
     private final Map<String, Currency> availableCurrencies = new HashMap<>();
 
-    private final SharedPreferences prefs;
+    private SharedPreferences prefs;
 
     @Inject
     CurrencyRepoImpl(@NonNull Context context) {
@@ -52,7 +52,7 @@ class CurrencyRepoImpl implements CurrencyRepo {
     public Observable<Currency> currency() {
         return Observable.create(emitter -> {
             SharedPreferences.OnSharedPreferenceChangeListener listener = (prefs, key) -> {
-                if (!emitter.isDisposed()) {
+                if (!emitter.isDisposed() && KEY_CURRENCY.equals(key)) {
                     emitter.onNext(Objects.requireNonNull(availableCurrencies.get(prefs.getString(key, "USD"))));
                 }
             };

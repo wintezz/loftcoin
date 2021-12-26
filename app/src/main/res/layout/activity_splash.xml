@@ -50,7 +50,7 @@
         android:src="@mipmap/artboard_bot_foreground"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/icon"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription,ImageContrastCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
